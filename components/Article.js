@@ -114,3 +114,59 @@ const data = [
   Step 5: Try adding new article object to the data array. Make sure it is in the same format as the others.
   Refresh the page to see the new article.
 */
+function articleMaker(titleContent, date, bodyParagraph1Content, bodyParagraph2Content, bodyParagraph3Content) {
+  //create elements
+  let containerDiv = document.createElement('div');
+  let title = document.createElement('h2');
+  let dateParagraph = document.createElement('p');
+  let bodyParagraph1 = document.createElement('p');
+  let bodyParagraph2 = document.createElement('p');
+  let bodyParagraph3 = document.createElement('p');
+  let expandButton = document.createElement('span')
+
+  //put classes on each element
+  //1. containerDiv = 'article'
+  containerDiv.classList.add('article');
+  //2. dateParagraph = 'date'
+  dateParagraph.classList.add('date');
+  //3. expandButton = 'expandButton'
+  expandButton.classList.add('expandButton');
+  
+  //put all elements withing container div
+  containerDiv.appendChild(title);
+  containerDiv.appendChild(dateParagraph);
+  containerDiv.appendChild(bodyParagraph1);
+  containerDiv.appendChild(bodyParagraph2);
+  containerDiv.appendChild(bodyParagraph3);
+  containerDiv.appendChild(expandButton);
+
+  
+
+  //add event listner to span button 
+  expandButton.addEventListener('click', (e) => {
+    console.log('toggle entered', e.target.classList)
+    containerDiv.classList.toggle('article-open')
+    
+  })
+  //add text content from data to each element
+  //return the article
+  title.textContent = titleContent;
+  dateParagraph.textContent = date;
+  bodyParagraph1.textContent = bodyParagraph1Content;
+  bodyParagraph2.textContent = bodyParagraph2Content;
+  bodyParagraph3.textContent = bodyParagraph3Content;
+  expandButton.textContent = '+';
+
+  // //put container within document
+  
+  // articlesContainer.appendChild(containerDiv)
+  return containerDiv
+};
+
+const articlesContainer = document.querySelector('.articles');
+data.forEach((item) => {
+  console.log('items:', item)
+  let article = articleMaker(item.title, item.date, item.firstParagraph, item.secondParagraph, item.thirdParagraph)
+  articlesContainer.appendChild(article)
+})
+
