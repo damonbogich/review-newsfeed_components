@@ -141,11 +141,8 @@ function articleMaker(titleContent, date, bodyParagraph1Content, bodyParagraph2C
   let expandButton = document.createElement('span')
 
   //put classes on each element
-  //1. containerDiv = 'article'
   containerDiv.classList.add('article');
-  //2. dateParagraph = 'date'
   dateParagraph.classList.add('date');
-  //3. expandButton = 'expandButton'
   expandButton.classList.add('expandButton');
   
   //put all elements withing container div
@@ -156,8 +153,6 @@ function articleMaker(titleContent, date, bodyParagraph1Content, bodyParagraph2C
   containerDiv.appendChild(bodyParagraph3);
   containerDiv.appendChild(expandButton);
 
-  
-
   //add event listner to span button 
   expandButton.addEventListener('click', (e) => {
     console.log('toggle entered', e.target.classList)
@@ -165,7 +160,6 @@ function articleMaker(titleContent, date, bodyParagraph1Content, bodyParagraph2C
     
   })
   //add text content from data to each element
-  //return the article
   title.textContent = titleContent;
   dateParagraph.textContent = date;
   bodyParagraph1.textContent = bodyParagraph1Content;
@@ -173,9 +167,6 @@ function articleMaker(titleContent, date, bodyParagraph1Content, bodyParagraph2C
   bodyParagraph3.textContent = bodyParagraph3Content;
   expandButton.textContent = '+';
 
-  // //put container within document
-  
-  // articlesContainer.appendChild(containerDiv)
   return containerDiv
 };
 
